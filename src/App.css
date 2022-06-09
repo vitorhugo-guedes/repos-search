@@ -1,0 +1,10 @@
+body{
+  color: #fff;
+  background-color: #333;
+}
+
+.wrapper{
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
