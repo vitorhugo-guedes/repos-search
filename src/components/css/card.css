@@ -1,0 +1,55 @@
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Temporary */
+    padding: 1rem;
+
+    block-size: 200px;
+    max-inline-size: 400px;
+}
+
+.card--blue{
+    color: var(--clr-ntr-min);
+    background-color: var(--clr-base);
+}
+
+.card__title{
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.card__topics{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card__footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card__buttons{
+    display: flex;
+    gap: 5px;
+}
+
+.btn{
+    cursor: pointer;
+    border: none;
+    padding: 0.5em 0.75em;
+
+    background: transparent;
+}
+
+.btn-primary{
+    color: var(--clr-ntr-min);
+    /* background-color: var(--clr-btn); */
+
+    border-bottom: 2px solid var(--clr-secondary);
+}
+
+.btn-primary:hover{
+    border-bottom: 2px solid #0098C2;
+}

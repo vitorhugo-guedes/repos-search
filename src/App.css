@@ -1,6 +1,24 @@
+:root{
+  --clr-bg: #202020;
+  --clr-base: #00303D;
+  --clr-primary: #004052;
+  --clr-secondary: #005066;
+  --clr-terciary: #00607A;
+
+  --clr-btn: #005C75;
+
+  --clr-ntr-max: #222;
+  --clr-ntr-min: #eaebed;
+}
+
 body{
-  color: #fff;
-  background-color: #333;
+  background-color: var(--clr-bg);
+}
+
+body, 
+input, 
+button {
+  font-family: 'Inter', sans-serif;
 }
 
 .wrapper{
