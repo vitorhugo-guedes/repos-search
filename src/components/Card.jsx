@@ -1,5 +1,6 @@
 
 import './css/card.css'
+import {IoStarSharp} from 'react-icons/io5'
 
 function Card(props){
     const repo = props.repo
@@ -30,6 +31,7 @@ function Card(props){
             <section className='card__body'>
                 
                 <p className='card__descrip'>
+                    {!repo.description && <span>No description</span>}
                     {repo.description}
                 </p>
                 {/* <span className='card__language-wrapper'>
@@ -38,6 +40,7 @@ function Card(props){
                     </p>
                 </span> */}
                 <span className='card__topics'>
+                    {!repo.topics.length && <span>No topics</span>}
                     {repo.topics.map(topic => {
                         return (
                             <p key={topic} className='topics__item'>{topic}</p>
@@ -49,7 +52,7 @@ function Card(props){
             <section className='card__footer'>
 
                 <div className="card__stars">
-                    <p>Stars: { repo.stargazers_count }</p>
+                    <p><IoStarSharp /> { repo.stargazers_count }</p>
                 </div>
 
                 <div className="card__buttons">

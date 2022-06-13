@@ -99,8 +99,9 @@
 
 .card__stars{
     display: grid;
-    place-items: left flex-end;
+    place-items: flex-end normal;
     inline-size: 30%;
+    
 }
 
 .card__buttons{
@@ -128,9 +129,9 @@
     color: var(--clr-ntr-min);
     /* background-color: var(--clr-base); */
 
-    border-bottom: 2px solid #E86423;
+    border-bottom: 2px solid darkslateblue;
 }
 
 .btn-primary:hover{
-    border-bottom: 2px solid #FF5733;
+    border-bottom: 2px solid lightsteelblue;
 }
