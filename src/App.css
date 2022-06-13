@@ -1,14 +1,23 @@
 :root{
-  --clr-bg: #202020;
+  /* Colors */
+  --clr-bg: #000E14;
   --clr-base: #00303D;
   --clr-primary: #004052;
   --clr-secondary: #005066;
   --clr-terciary: #00607A;
 
-  --clr-btn: #005C75;
-
   --clr-ntr-max: #222;
   --clr-ntr-min: #eaebed;
+
+  /* Font */
+  --fw-regular: 400;
+  --fw-md-bold: 500;
+
+  --fs-title: 26px;
+  --fs-descrip: 14px;
+  --fs-button: 12px;
+  --fs-date: 10px;
+
 }
 
 body{

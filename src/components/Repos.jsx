@@ -139,8 +139,8 @@ function Repos(props){
                 {/* {repos && <p>Waiting...</p>} */}
                 {repos?.map(repo => {
                     return (
-                        <li className="repos-list__item" key={repo.id}>
-                            <Card repo={repo} />
+                        <li key={repo.id} className="repos-list__item">
+                            <Card  repo={repo} />
                         </li>
                     )
                 })}
