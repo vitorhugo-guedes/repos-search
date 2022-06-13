@@ -30,11 +30,15 @@ function Card(props){
             <section className='card__body'>
                 
                 <p className='card__descrip'>
-                        {repo.description}
+                    {repo.description}
                 </p>
-
+                {/* <span className='card__language-wrapper'>
+                    <p className='card__language'>
+                        {repo.language}
+                    </p>
+                </span> */}
                 <span className='card__topics'>
-                    topics: {repo.topics.map(topic => {
+                    {repo.topics.map(topic => {
                         return (
                             <p key={topic} className='topics__item'>{topic}</p>
                         )
