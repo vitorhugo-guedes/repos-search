@@ -1,5 +1,7 @@
 
-export const fetchRepos = async user => { 
+export const fetchRepos = async user => {
+    if(user === undefined || '' || null) return
+    
     const url = `https://api.github.com/users/${user}/repos`
 
     const data = await fetch(url)

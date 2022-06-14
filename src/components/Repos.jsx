@@ -4,13 +4,17 @@ import { fetchRepos } from "../service/fetchGithub";
 
 import './css/repos.css'
 import { ImSearch } from "react-icons/im";
+import { AiOutlineEnter } from "react-icons/ai"
 
 function Repos(props){
     const [username, setUsername] = useState('');
     const [repos, setRepos] = useState([]);
 
     function handleSearchChange(ev){
-        setUsername(ev.target.value)
+        const value = ev.target.value
+        if(value !== undefined || ''){
+            setUsername(value)
+        }
     }
 
     function handleSubmit(ev){
@@ -148,7 +152,10 @@ function Repos(props){
             </form>
 
             <ul className="repos-list">
-                {!repos.length && <p className="repo-list__message">Press enter to search...</p>}
+                {!repos.length && 
+                    <p className="repo-list__message">
+                        Press enter <AiOutlineEnter className="message_enter-icon" /> to search...
+                    </p>}
                 {repos?.map(repo => {
                     return (
                         <li key={repo.id} className="repos-list__item">
