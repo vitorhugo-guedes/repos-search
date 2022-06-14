@@ -22,7 +22,7 @@ function Repos(props){
     //     {
     //         "id": 482605252,
     //         "node_id": "R_kgDOHMP4xA",
-    //         "name": "advice-generator",
+    //         "name": "advice-generator-generator-generator-generator",
     //         "full_name": "vitorhugo-guedes/advice-generator",
     //         "private": false,
     //         "owner": {
@@ -115,7 +115,12 @@ function Repos(props){
     //           "html5",
     //           "js",
     //           "sass",
-    //           "scss"
+    //           "scss",
+    //           "blabla",
+    //           "bleble",
+    //           "sarapatel",
+    //           "bigorna",
+    //           "pinrulito"
     //         ],
     //         "visibility": "public",
     //         "forks": 0,

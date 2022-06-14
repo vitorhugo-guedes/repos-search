@@ -6,22 +6,23 @@
   --clr-secondary: #005066;
   --clr-terciary: #00607A;
 
-  --clr-ntr-max: #222;
+  --clr-ntr-max: #111;
   --clr-ntr-min: #eaebed;
 
   /* Font */
   --fw-regular: 400;
   --fw-md-bold: 500;
 
-  --fs-title: 26px;
-  --fs-descrip: 16px;
-  --fs-button: 12px;
-  --fs-date: 10px;
+  --fs-sm: 10px;
+  --fs-x-sm: 12px;
+  --fs-md: 14px;
+  --fs-x-md: 16px;
+  --fs-lg: 26px;
 
 }
 
 body{
-  background-color: var(--clr-bg);
+  background-color: var(--clr-ntr-max);
 }
 
 body, 

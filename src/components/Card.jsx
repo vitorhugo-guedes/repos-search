@@ -56,8 +56,8 @@ function Card(props){
                 </div>
 
                 <div className="card__buttons">
-                    <button className='btn btn-primary'>Homepage</button>
-                    <button className='btn btn-primary'>Repository</button>
+                    <a target="_blank" href={repo.homepage} className='btn btn-primary'>Homepage</a>
+                    <a target="_blank" href={repo.html_url} className='btn btn-primary'>Repository</a>
                 </div>
 
             </section>
