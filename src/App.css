@@ -1,11 +1,15 @@
 :root{
   /* Colors */
-  /* --clr-bg: #000E14; */
   --clr-base: #1E2021;
-  --clr-primary: #483d8b;
+
+  --clr-primary-light: #7B2CBF;
+  --clr-primary: #5A189A;
+  --clr-primary-dark: #3C096C;
 
   --clr-ntr-max: #111;
   --clr-ntr-min: #eaebed;
+
+  /* linear-gradient(90deg, rgba(60,9,108,1) 0%, rgba(90,24,154,1) 62%, rgba(123,44,191,1) 100%) */
 
   /* Font */
   --fw-regular: 400;
@@ -30,7 +34,7 @@ button {
 }
 
 .wrapper{
-  display: flex;
-  justify-content: center;
-  margin-top: 3rem;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
 }

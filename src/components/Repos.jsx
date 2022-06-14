@@ -3,6 +3,7 @@ import Card from "./Card";
 import { fetchRepos } from "../service/fetchGithub";
 
 import './css/repos.css'
+import { ImSearch } from "react-icons/im";
 
 function Repos(props){
     const [username, setUsername] = useState('');
@@ -131,17 +132,23 @@ function Repos(props){
     // ]
 
     return (
-        <div className="main-content">
-            <form action="#" onSubmit={handleSubmit}>
-                <input 
+        <main className="main main--dark">
+            <form className="form" action="#" onSubmit={handleSubmit}>
+                <ImSearch className="input__search-icon" />
+                <input
+                    className="form__input form__input--dark"
+                    name="searchUser"
                     type="search"
-                    onChange={handleSearchChange} 
-                    placeholder="search..." 
+                    onChange={handleSearchChange}
+                    placeholder="Search a user"
+                    spellCheck="false"
+                    autoComplete="off"
                 />
+                <span className="input__underline"></span>
             </form>
 
             <ul className="repos-list">
-                {/* {repos && <p>Waiting...</p>} */}
+                {!repos.length && <p className="repo-list__message">Press enter to search...</p>}
                 {repos?.map(repo => {
                     return (
                         <li key={repo.id} className="repos-list__item">
@@ -150,7 +157,7 @@ function Repos(props){
                     )
                 })}
             </ul>
-        </div>
+        </main>
     )
 }
 
