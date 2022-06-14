@@ -17,6 +17,8 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+
+    /* margin: 2rem 0rem; */
 }
 .form__input{
     font-size: 20px;
@@ -26,7 +28,7 @@
 }
 .form__input--dark{
     color: var(--clr-ntr-min);
-    border-bottom: solid 2px var(--clr-primary);
+    border-bottom: solid 2px var(--clr-primary-light);
 }
 .form__input--dark:focus ~ .input__underline{
     width: 100%;
@@ -38,10 +40,9 @@
     position: absolute;
     left: 0;
     bottom: -1px;
-
     width: 0;
     height: 2px;
-    background: var(--clr-primary);
+    background: var(--clr-primary-light);
     transition: all 200ms ease-out;
 }
 .form__input--dark:placeholder-shown{
@@ -67,7 +68,7 @@
 .repo-list__message{
     grid-column-start: 1;
     grid-column-end: 3;
-    text-align: center;
+    /* text-align: center; */
 }
 .message_enter-icon{
     padding: 0px 2px 4px 0px;
