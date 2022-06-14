@@ -32,14 +32,14 @@ function Card(props){
                     {repo.description}
                 </p>
                 
-                <span className='card__topics'>
+                <div className='card__topics'>
                     {!repo.topics.length && <span>No topics</span>}
                     {repo.topics.map(topic => {
                         return (
                             <span key={topic} className='topics__item'>{topic}</span>
                         )
                     })}
-                </span>
+                </div>
             </section>
 
             <section className='card__footer'>

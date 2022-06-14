@@ -16,7 +16,6 @@
     block-size: 25%;
 }
 .card__header, 
-.card__body, 
 .card__footer{
     padding: 1rem;
 }
@@ -43,8 +42,10 @@
 .card__body{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
+
     block-size: 100%;
+    padding: 0rem 1rem;
     /* background-color: darkcyan; */
 }
 .card__descrip{
