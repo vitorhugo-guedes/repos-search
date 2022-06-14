@@ -1,10 +1,8 @@
 :root{
   /* Colors */
-  --clr-bg: #000E14;
-  --clr-base: #00303D;
-  --clr-primary: #004052;
-  --clr-secondary: #005066;
-  --clr-terciary: #00607A;
+  /* --clr-bg: #000E14; */
+  --clr-base: #1E2021;
+  --clr-primary: #483d8b;
 
   --clr-ntr-max: #111;
   --clr-ntr-min: #eaebed;
