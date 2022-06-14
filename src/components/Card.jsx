@@ -13,19 +13,16 @@ function Card(props){
     }
 
     return (
-        <div className="card card--blue">
+        <div className="card card--dark">
 
             <section className='card__header'>
-                <div className='card__title-wrapper'>
-                    <h4 className='card__title'>
-                        {repo.name}
-                    </h4>
-                </div>
-                <div className='card__date-wrapper'>
-                    <p className='card__creation-date'>
-                        {createdDate}
-                    </p>
-                </div>
+                <h4 className='card__title'>
+                    {repo.name}
+                </h4>
+
+                <p className='card__creation-date'>
+                    {createdDate}
+                </p>
             </section>
 
             <section className='card__body'>
@@ -34,16 +31,12 @@ function Card(props){
                     {!repo.description && <span>No description</span>}
                     {repo.description}
                 </p>
-                {/* <span className='card__language-wrapper'>
-                    <p className='card__language'>
-                        {repo.language}
-                    </p>
-                </span> */}
+                
                 <span className='card__topics'>
                     {!repo.topics.length && <span>No topics</span>}
                     {repo.topics.map(topic => {
                         return (
-                            <p key={topic} className='topics__item'>{topic}</p>
+                            <span key={topic} className='topics__item'>{topic}</span>
                         )
                     })}
                 </span>
