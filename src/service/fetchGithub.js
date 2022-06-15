@@ -7,6 +7,9 @@ export const fetchRepos = async user => {
         .then(data => {
             return data
         })
-
+        .catch(e => {
+            console.error(e)
+        })
     return data
+    
  }

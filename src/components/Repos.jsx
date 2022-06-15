@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Card from "./Card";
 import { fetchRepos } from "../service/fetchGithub";
+import { isStrEmpty } from "../js/module.js";
 
 import './css/repos.css'
 import { ImSearch } from "react-icons/im";
@@ -17,11 +18,16 @@ function Repos(props){
     }
     
     function handleSubmit(ev){
-        ev.preventDefault()
-        console.log(username)
-        fetchRepos(username).then(res => setRepos(res))
-    }
+        ev.preventDefault();
 
+        if(isStrEmpty(username)){
+            return
+        }
+
+        fetchRepos(username)
+            .then(res =>setRepos(res))
+            .catch(e => console.error(e))
+    }
 
     return (
         <main className="main main--dark">
@@ -43,8 +49,9 @@ function Repos(props){
                 {!repos.length &&
                     <p className="repo-list__message">
                         Press enter <AiOutlineEnter className="message_enter-icon" /> to search...
-                    </p>}
-                {repos?.map(repo => {
+                    </p>
+                }
+                {repos.length > 0 && repos.map(repo => {
                     return (
                         <li key={repo.id} className="repos-list__item">
                             <Card  repo={repo} />
