@@ -12,11 +12,13 @@ function Repos(props){
 
     function handleSearchChange(ev){
         const value = ev.target.value
-        setUsername(value)
+        const user = value.toLowerCase().trim()
+        setUsername(user)
     }
-
+    
     function handleSubmit(ev){
         ev.preventDefault()
+        console.log(username)
         fetchRepos(username).then(res => setRepos(res))
     }
 
