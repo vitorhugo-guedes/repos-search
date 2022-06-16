@@ -7,11 +7,9 @@
 
     margin: 0.5rem;
     inline-size: 100%;
-    /* padding-top: 3rem; */
 }
 .main--dark{
     color: var(--clr-ntr-min);
-    /* background-color: darkslategray; */
 }
 
 .search-section{
@@ -19,7 +17,6 @@
     gap: 0.5rem;
     flex-direction: column;
     margin: 2.5rem 0rem 2rem 0rem;
-    /* border: solid 1px yellow; */
 }
 
 /* Form */
@@ -28,12 +25,11 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    /* margin-top: 2rem; */
 }
 .form__input{
     border: none;
     outline: none;
-    
+
     font-size: var(--fs-xlg);
     background-color: transparent;
 }
@@ -71,25 +67,19 @@
 /* Repositories list */
 .repos-list{
     list-style: none;
+
     display: grid;
     gap: 1rem;
     align-items: center;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 
     max-inline-size: 100%;
-    /* background-color: darkslateblue; */
 }
 .repos-list__item{
     margin: 0;
-    /* max-inline-size: 400px; */
-    /* border: 2px solid red; */
-    /* max-block-size: 100%;
-    max-inline-size: 100%; */
 }
-
 .message__icon{
     padding: 0px 2px 4px 0px;
-
     background-color: var(--clr-ntr-md);
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, 
                 rgba(0, 0, 0, 0.2) 0px -3px 0px inset;

@@ -21,7 +21,7 @@ function Card(props){
                     {repo.name}
                 </h4>
 
-                <p className='card__creation-date'>
+                <p className='card__creation-date creation-date--light'>
                     {createdDate}
                 </p>
             </section>
@@ -37,7 +37,12 @@ function Card(props){
                     {!repo.topics.length && <span>No topics</span>}
                     {repo.topics.map(topic => {
                         return (
-                            <span key={topic} className='topics__item'>{topic}</span>
+                            <span 
+                                key={topic} 
+                                className='topics__item topics--dark'
+                            >
+                                {topic}
+                            </span>
                         )
                     })}
                 </div>

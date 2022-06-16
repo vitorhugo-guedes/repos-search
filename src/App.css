@@ -11,9 +11,7 @@
   --clr-ntr-md: #333;
   --clr-ntr-min: #eaebed;
   --clr-ntr-md-min: hsl(220, 8%, 85%);
-
-  /* linear-gradient(90deg, rgba(60,9,108,1) 0%, rgba(90,24,154,1) 62%, rgba(123,44,191,1) 100%) */
-
+  
   /* Font */
   --fw-regular: 400;
   --fw-md-bold: 500;
