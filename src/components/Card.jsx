@@ -1,10 +1,12 @@
+import { isStrEmpty } from '../js/module'
 
 import './css/card.css'
 import {IoStarSharp} from 'react-icons/io5'
 
 function Card(props){
     const repo = props.repo
-    const createdDate = formattedRepoDate(repo.created_at)
+    const createdDate = formattedRepoDate(repo.created_at);
+    const hasHomepage = !repo.homepage ? 'btn--disabled' : 'btn--primary';
 
     function formattedRepoDate(date){
         const newDate = date.substring(0, 10);
@@ -49,8 +51,20 @@ function Card(props){
                 </div>
 
                 <div className="card__buttons">
-                    <a target="_blank" href={repo.homepage} className='btn btn-primary'>Homepage</a>
-                    <a target="_blank" href={repo.html_url} className='btn btn-primary'>Repository</a>
+                    <a 
+                        target="_blank" 
+                        href={repo.homepage} 
+                        className={`btn ${hasHomepage}`}
+                    >
+                        Homepage
+                    </a>
+                    <a 
+                        target="_blank" 
+                        href={repo.html_url} 
+                        className='btn btn--primary'
+                    >
+                        Repository
+                    </a>
                 </div>
 
             </section>
