@@ -29,36 +29,56 @@ function Repos(props){
             .catch(e => console.error(e))
     }
 
+    // const repos = [
+    //     {
+    //         id: 1,
+    //         name: 'Aleatorioaleatorioaleatorio',
+    //         description: 'LoremipsumdolorsitametconsecteturadipiscingelitVivamusquamarcu, pellentesque',
+    //         topics: ['um', 'dois', 'javascript', 'java', 'pythonfrontendbackenddevlopment'],
+    //         homepage: '',
+    //         html_url: '',
+    //         stargazers_count: 0,
+    //         created_at: '2051-20-89T'
+    //     }
+    // ]
+
     return (
         <main className="main main--dark">
-            <form className="form" action="#" onSubmit={handleSubmit}>
-                <ImSearch className="input__search-icon" />
-                <input
-                    className="form__input form__input--dark"
-                    name="searchUser"
-                    type="search"
-                    onChange={handleSearchChange}
-                    placeholder="Search a user"
-                    spellCheck="false"
-                    autoComplete="off"
-                />
-                <span className="input__underline"></span>
-            </form>
 
-            <ul className="repos-list">
+            <section className="search-section">
+                <form className="form" action="#" onSubmit={handleSubmit}>
+                    <ImSearch className="input__search-icon" />
+                    <input
+                        className="form__input form__input--dark"
+                        name="searchUser"
+                        type="search"
+                        onChange={handleSearchChange}
+                        placeholder="Search a user"
+                        spellCheck="false"
+                        autoComplete="off"
+                    />
+                    <span className="input__underline"></span>
+                </form>
                 {!repos.length &&
-                    <p className="repo-list__message">
+                    <p className="search-section__message">
                         Press enter <AiOutlineEnter className="message__icon" /> to search...
                     </p>
                 }
+            </section>
+
+            <ul className="repos-list">
                 {repos.length > 0 && repos.map(repo => {
                     return (
-                        <li key={repo.id} className="repos-list__item">
+                        <li 
+                            key={repo.id} 
+                            className="repos-list__item"
+                        >
                             <Card  repo={repo} />
                         </li>
                     )
                 })}
             </ul>
+
         </main>
     )
 }
