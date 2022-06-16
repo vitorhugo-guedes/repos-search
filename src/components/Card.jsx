@@ -1,4 +1,3 @@
-import { isStrEmpty } from '../js/module'
 
 import './css/card.css'
 import {IoStarSharp} from 'react-icons/io5'
@@ -47,7 +46,7 @@ function Card(props){
             <section className='card__footer'>
 
                 <div className="card__stars">
-                    <p><IoStarSharp /> { repo.stargazers_count }</p>
+                    <p><IoStarSharp className='stars__icon' /> { repo.stargazers_count }</p>
                 </div>
 
                 <div className="card__buttons">

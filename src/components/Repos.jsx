@@ -48,7 +48,7 @@ function Repos(props){
             <ul className="repos-list">
                 {!repos.length &&
                     <p className="repo-list__message">
-                        Press enter <AiOutlineEnter className="message_enter-icon" /> to search...
+                        Press enter <AiOutlineEnter className="message__icon" /> to search...
                     </p>
                 }
                 {repos.length > 0 && repos.map(repo => {

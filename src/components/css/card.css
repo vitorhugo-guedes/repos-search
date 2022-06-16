@@ -24,11 +24,10 @@
 .card__header{
     display: flex;
     justify-content: space-between;
-    /* background-color: darkgrey; */
 }
 .card__title{
     inline-size: 80%;
-    font-size: var(--fs-lg);
+    font-size: var(--fs-x-lg);
     font-weight: var(--fw-md-bold);
 }
 .card__creation-date{
@@ -46,7 +45,6 @@
 
     block-size: 100%;
     padding: 0rem 1rem;
-    /* background-color: darkcyan; */
 }
 .card__descrip{
     font-size: var(--fs-x-md);
@@ -63,30 +61,28 @@
     text-transform: uppercase;
     padding: 0.5em 0.75em;
     background-color: var(--clr-ntr-md);
-    /* color: hsl(270, 73%, 35%); */
 }
 
 /* Footer */
 .card__footer{
     display: flex;
     justify-content: space-between;
-
-    /* background-color: lightslategray; */
 }
 .card__stars{
     display: grid;
     place-items: flex-end normal;
-    /* inline-size: 30%; */
+    text-align: center;
+}
+.stars__icon{
+    font-size: var(--fs-x-md);
+    color: #FFD100;
 }
 .card__buttons{
     display: flex;
     gap: 1em;
     align-items: flex-end;
     justify-content: flex-end;
-    /* inline-size: 60%; */
-    /* background-color: darkgreen; */
 }
-
 
 /* Buttons */
 .btn{
