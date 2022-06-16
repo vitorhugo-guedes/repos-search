@@ -33,8 +33,8 @@
     inline-size: 80%;
     line-height: 1;
     word-wrap: break-word;
+    font-size: var(--fs-lg);
     font-weight: var(--fw-md-bold);
-    font-size: clamp(var(--fs-lg), 1rem + 1vw, var(--fs-x-lg));
 }
 .card__creation-date{
     inline-size: 20%;
@@ -57,7 +57,7 @@
 .card__descrip{
     line-height: 1;
     word-wrap: break-word;
-    font-size: var(--fs-x-md);
+    font-size: var(--fs-md);
     font-weight: var(--fw-regular);
 }
 .card__topics{
@@ -69,6 +69,7 @@
     cursor: default;
     font-size: var(--fs-sm);
     text-transform: uppercase;
+
     padding: 0.5em 0.75em;
     background-color: var(--clr-ntr-md);
 }
@@ -84,7 +85,7 @@
     text-align: center;
 }
 .stars__icon{
-    font-size: var(--fs-x-md);
+    font-size: var(--fs-md);
     color: #FFD100;
 }
 .card__buttons{
@@ -101,7 +102,7 @@
     text-decoration: none;
     padding: 0.5em 0.75em;
     
-    font-size: var(--fs-sm);
+    font-size: var(--fs-xsm);
     letter-spacing: 0.03em;
     font-weight: var(--fw-md-bold);
 
