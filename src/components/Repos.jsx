@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { useFetch } from "../hooks/useFetch";
+
 import Card from "./Card";
-import { fetchRepos } from "../service/fetchGithub";
-import { isStrEmpty } from "../js/module.js";
 
 import './css/repos.css'
 import { ImSearch } from "react-icons/im";
@@ -9,24 +9,20 @@ import { AiOutlineEnter } from "react-icons/ai"
 
 function Repos(props){
     const [username, setUsername] = useState('');
-    const [repos, setRepos] = useState([]);
+    const [url, setUrl] = useState(null);
+    const { data, error, isFetching } = useFetch({ 
+        url 
+    });
 
     function handleSearchChange(ev){
         const value = ev.target.value
         const user = value.toLowerCase().trim()
-        setUsername(user)
+        setUsername(user);
     }
     
     function handleSubmit(ev){
         ev.preventDefault();
-
-        if(isStrEmpty(username)){
-            return
-        }
-
-        fetchRepos(username)
-            .then(res =>setRepos(res))
-            .catch(e => console.error(e))
+        setUrl(`https://api.github.com/users/${username}/repos`);
     }
 
     // const repos = [
@@ -46,6 +42,7 @@ function Repos(props){
         <main className="main main--dark">
 
             <section className="search-section">
+
                 <form className="form" action="#" onSubmit={handleSubmit}>
                     <ImSearch className="input__search-icon" />
                     <input
@@ -53,21 +50,26 @@ function Repos(props){
                         name="searchUser"
                         type="search"
                         onChange={handleSearchChange}
-                        placeholder="Search a user"
+                        placeholder="Search a github username"
                         spellCheck="false"
                         autoComplete="off"
                     />
                     <span className="input__underline"></span>
                 </form>
-                {!repos.length &&
+
+                {!data?.length &&
                     <p className="search-section__message">
                         Press enter <AiOutlineEnter className="message__icon" /> to search...
                     </p>
                 }
             </section>
 
+            <section>
+                <p></p>
+            </section>
+
             <ul className="repos-list">
-                {repos.length > 0 && repos.map(repo => {
+                {data?.length > 0 && data.map(repo => {
                     return (
                         <li 
                             key={repo.id} 

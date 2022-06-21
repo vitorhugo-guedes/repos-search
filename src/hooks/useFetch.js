@@ -1,18 +1,49 @@
 import { useState } from "react"
 import { useEffect } from "react"
 
-export function useFetch(url){
+export function useFetch(options){
 
     const [data , setData] = useState(null);
+    const [error, setError] = useState(null);
+    const [isFetching, setIsFetching] = useState(true);
+
+    function errorHandler(response){
+        if(!response.ok){
+            const responseError = {
+                status: response.status,
+                statusText: response.statusText
+            }
+            throw(responseError)
+        }
+        return response.json()
+    }
 
     useEffect(()=>{ 
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                setData(data)
-            })
-    }, []);
+        console.log('UseEffect: useFetch')
+        if(options.url){
+            let isCancelled = false;
 
-    return {data}
+            fetch(options.url)
+                .then(errorHandler)
+                .then(data => {
+                    if(!isCancelled){
+                        setData(data)
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    setError(err);
+                })
+                .finally(()=> {
+                    setIsFetching(false);
+                })
+
+            return ()=> {
+                isCancelled = true;
+            }
+        }
+    }, [options.url]);
+
+    return { data, error, isFetching }
 }
 
