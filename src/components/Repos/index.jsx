@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useFetch } from "../hooks/useFetch";
+import { useFetch } from "../../hooks/useFetch";
 
-import Card from "./Card";
+import Card from "../Card";
 
-import './css/repos.css'
+import './repos.css'
 import { ImSearch } from "react-icons/im";
 import { AiOutlineEnter } from "react-icons/ai"
 

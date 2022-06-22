@@ -5,7 +5,6 @@ export function useFetch(options){
 
     const [data , setData] = useState(null);
     const [error, setError] = useState(null);
-    // const [isFetching, setIsFetching] = useState(true);
 
     function errorHandler(res){
         if(!res.ok){
@@ -19,7 +18,6 @@ export function useFetch(options){
     }
 
     useEffect(()=>{ 
-        console.log('UseEffect: useFetch')
         if(options.url){
             let isCancelled = false;
 

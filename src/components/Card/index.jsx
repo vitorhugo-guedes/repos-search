@@ -1,5 +1,5 @@
 
-import './css/card.css'
+import './card.css'
 import {IoStarSharp} from 'react-icons/io5'
 
 function Card(props){
