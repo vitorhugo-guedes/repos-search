@@ -10,7 +10,7 @@ import { AiOutlineEnter } from "react-icons/ai"
 function Repos(props){
     const [username, setUsername] = useState('');
     const [url, setUrl] = useState(null);
-    const { data, error, isFetching } = useFetch({ 
+    const { data, error } = useFetch({ 
         url 
     });
 
@@ -24,19 +24,6 @@ function Repos(props){
         ev.preventDefault();
         setUrl(`https://api.github.com/users/${username}/repos`);
     }
-
-    // const repos = [
-    //     {
-    //         id: 1,
-    //         name: 'Aleatorioaleatorioaleatorio',
-    //         description: 'LoremipsumdolorsitametconsecteturadipiscingelitVivamusquamarcu, pellentesque',
-    //         topics: ['um', 'dois', 'javascript', 'java', 'pythonfrontendbackenddevlopment'],
-    //         homepage: '',
-    //         html_url: '',
-    //         stargazers_count: 0,
-    //         created_at: '2051-20-89T'
-    //     }
-    // ]
 
     return (
         <main className="main main--dark">
@@ -60,6 +47,11 @@ function Repos(props){
                 {!data?.length &&
                     <p className="search-section__message">
                         Press enter <AiOutlineEnter className="message__icon" /> to search...
+                    </p>
+                }
+                {error?.status == 404 && 
+                    <p className="search-section__message">
+                        User not found. Search a valid username.
                     </p>
                 }
             </section>

@@ -5,17 +5,17 @@ export function useFetch(options){
 
     const [data , setData] = useState(null);
     const [error, setError] = useState(null);
-    const [isFetching, setIsFetching] = useState(true);
+    // const [isFetching, setIsFetching] = useState(true);
 
-    function errorHandler(response){
-        if(!response.ok){
+    function errorHandler(res){
+        if(!res.ok){
             const responseError = {
-                status: response.status,
-                statusText: response.statusText
+                status: res.status,
+                statusText: res.statusText
             }
             throw(responseError)
         }
-        return response.json()
+        return res.json()
     }
 
     useEffect(()=>{ 
@@ -34,16 +34,14 @@ export function useFetch(options){
                     console.error(err);
                     setError(err);
                 })
-                .finally(()=> {
-                    setIsFetching(false);
-                })
 
             return ()=> {
                 isCancelled = true;
+                setError(null);
             }
         }
     }, [options.url]);
 
-    return { data, error, isFetching }
+    return { data, error }
 }
 
