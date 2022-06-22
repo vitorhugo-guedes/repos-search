@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useFetch } from "../../hooks/useFetch";
 
 import Card from "../Card";
+import LastSearch from "../LastSearch";
 
 import './repos.css'
 import { ImSearch } from "react-icons/im";
@@ -49,6 +50,7 @@ function Repos(props){
                         Press enter <AiOutlineEnter className="message__icon" /> to search...
                     </p>
                 }
+                <LastSearch />
                 {error?.status == 404 && 
                     <p className="search-section__message">
                         User not found. Search a valid username.
@@ -57,7 +59,6 @@ function Repos(props){
             </section>
 
             <section>
-                <p></p>
             </section>
 
             <ul className="repos-list">
