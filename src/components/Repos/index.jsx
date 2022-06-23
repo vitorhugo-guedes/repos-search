@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useFetch } from "../../hooks/useFetch";
 import { useLocalStorage } from '../../hooks/useLocalStorage'
+import createID from "../../modules/createID";
 
 import Card from "../Card";
 import LastSearch from "../LastSearch";
@@ -13,7 +14,7 @@ function Repos(props){
     const [username, setUsername] = useState('');
     const [url, setUrl] = useState(null);
     const { data, error } = useFetch({ url });
-    const [storageValue, setStorageValue] = useLocalStorage('lastUser', [])
+    const [lastUsername, setLastUsername] = useLocalStorage('lastUsername', [])
 
     function handleSearchChange(ev){
         const value = ev.target.value
@@ -24,7 +25,11 @@ function Repos(props){
     function handleSubmit(ev){
         ev.preventDefault();
         setUrl(`https://api.github.com/users/${username}/repos`);
-        setStorageValue(prev => [...prev, username]);
+        setLastUsername(prev => [...prev, { 'id': createID(), 'user': username}]);
+    }
+
+    function deleteLastSearch(){
+        setLastUsername([]);
     }
 
     return (
@@ -52,7 +57,7 @@ function Repos(props){
                     </p>
                 }
 
-                <LastSearch data={storageValue} />
+                <LastSearch data={lastUsername} onDelete={deleteLastSearch} />
 
                 {error?.status == 404 && 
                     <p className="search-section__message">
