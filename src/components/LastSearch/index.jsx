@@ -8,6 +8,10 @@ function LastSearch(props) {
         props.onDelete(e)
     }
 
+    function handlePopulateInput(e){
+        props.onInput(e)
+    }
+
     return (
         <ul className='user-list'>
             { usernames?.length > 0 && usernames.map( username => {
@@ -17,7 +21,7 @@ function LastSearch(props) {
                         className='user-list__item'
                     >
                         <button
-                            
+                            onClick={()=> handlePopulateInput(username.user)}
                             className="btn btn--user"
                         >
                             { username.user }

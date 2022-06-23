@@ -33,6 +33,10 @@ function Repos(props){
         setLastUsernames([...newUsernameList])
     }
 
+    function setInputValue(data){
+        setUsername(data)
+    }
+
     return (
         <main className="main main--dark">
 
@@ -41,13 +45,11 @@ function Repos(props){
                 <form className="form" action="#" onSubmit={handleSubmit}>
                     <ImSearch className="input__search-icon" />
                     <input
-                        className="form__input form__input--dark"
-                        name="searchUser"
                         type="search"
+                        value={username}
                         onChange={handleSearchChange}
+                        className="form__input form__input--dark"
                         placeholder="Search a github username"
-                        spellCheck="false"
-                        autoComplete="off"
                     />
                     <span className="input__underline"></span>
                 </form>
@@ -58,7 +60,11 @@ function Repos(props){
                     </p>
                 }
 
-                <LastSearch data={lastUsernames} onDelete={deleteLastSearch} />
+                <LastSearch 
+                    data={lastUsernames} 
+                    onDelete={deleteLastSearch} 
+                    onInput={setInputValue}
+                />
 
                 {error?.status == 404 && 
                     <p className="search-section__message">
