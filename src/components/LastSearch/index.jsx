@@ -2,20 +2,28 @@ import './lastSearch.css'
 import {VscChromeClose} from 'react-icons/vsc'
 
 function LastSearch(props) {
-    const lastUsernames = props.data
+    const usernames = props.data
+
+    function handleClick(e){
+        props.onDelete(e)
+    }
+
     return (
         <ul className='user-list'>
-            { lastUsernames?.length > 0 && lastUsernames.map( lastUsername => {
+            { usernames?.length > 0 && usernames.map( username => {
                 return (
                     <li 
-                        key={lastUsername.id} 
+                        key={username.id} 
                         className='user-list__item'
                     >
-                        <button className="btn btn--user">
-                            { lastUsername.user }
+                        <button
+                            
+                            className="btn btn--user"
+                        >
+                            { username.user }
                         </button>
                         <button 
-                            onClick={props.onDelete} 
+                            onClick={() => handleClick(username)} 
                             className="btn btn--close"
                         >
                             <VscChromeClose className="close-icon" />

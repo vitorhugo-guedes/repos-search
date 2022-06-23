@@ -14,7 +14,7 @@ function Repos(props){
     const [username, setUsername] = useState('');
     const [url, setUrl] = useState(null);
     const { data, error } = useFetch({ url });
-    const [lastUsername, setLastUsername] = useLocalStorage('lastUsername', [])
+    const [lastUsernames, setLastUsernames] = useLocalStorage('lastUsernames', [])
 
     function handleSearchChange(ev){
         const value = ev.target.value
@@ -25,11 +25,12 @@ function Repos(props){
     function handleSubmit(ev){
         ev.preventDefault();
         setUrl(`https://api.github.com/users/${username}/repos`);
-        setLastUsername(prev => [...prev, { 'id': createID(), 'user': username}]);
+        setLastUsernames(prev => [...prev, { 'id': createID(), 'user': username}]);
     }
 
-    function deleteLastSearch(){
-        setLastUsername([]);
+    function deleteLastSearch(user){
+        let newUsernameList = lastUsernames.filter(item => item.id !== user.id)
+        setLastUsernames([...newUsernameList])
     }
 
     return (
@@ -57,7 +58,7 @@ function Repos(props){
                     </p>
                 }
 
-                <LastSearch data={lastUsername} onDelete={deleteLastSearch} />
+                <LastSearch data={lastUsernames} onDelete={deleteLastSearch} />
 
                 {error?.status == 404 && 
                     <p className="search-section__message">
