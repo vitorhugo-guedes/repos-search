@@ -1,15 +1,22 @@
 .user-list{
     list-style: none;
+
     display: flex;
     gap: 10px;
-    padding: 1rem;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 
 .user-list__item{
     background-color: var(--clr-primary-dark);
 }
 
-.btn--user, .btn--close{
+.btn--user, 
+.btn--close{
+    font-weight: var(--fw-regular);
     color: var(--clr-min);
 }
-
+.btn--user:hover, 
+.btn--close:hover{
+    background-color: var(--clr-primary);
+}

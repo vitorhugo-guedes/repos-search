@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useFetch } from "../../hooks/useFetch";
+import { useLocalStorage } from '../../hooks/useLocalStorage'
 
 import Card from "../Card";
 import LastSearch from "../LastSearch";
@@ -11,9 +12,8 @@ import { AiOutlineEnter } from "react-icons/ai"
 function Repos(props){
     const [username, setUsername] = useState('');
     const [url, setUrl] = useState(null);
-    const { data, error } = useFetch({ 
-        url 
-    });
+    const { data, error } = useFetch({ url });
+    const [storageValue, setStorageValue] = useLocalStorage('lastUser', [])
 
     function handleSearchChange(ev){
         const value = ev.target.value
@@ -24,6 +24,7 @@ function Repos(props){
     function handleSubmit(ev){
         ev.preventDefault();
         setUrl(`https://api.github.com/users/${username}/repos`);
+        setStorageValue(prev => [...prev, username]);
     }
 
     return (
@@ -50,7 +51,9 @@ function Repos(props){
                         Press enter <AiOutlineEnter className="message__icon" /> to search...
                     </p>
                 }
-                <LastSearch />
+
+                <LastSearch data={storageValue} />
+
                 {error?.status == 404 && 
                     <p className="search-section__message">
                         User not found. Search a valid username.
