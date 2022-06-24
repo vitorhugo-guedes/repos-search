@@ -62,10 +62,10 @@ I want to divide the Repos component in other components to make more reusable a
 
 ### Useful resources
 
-- [React Docs] (https://pt-br.reactjs.org/docs/hello-world.html) - The best way to start learning Reactjs. Helped me to learn how react works and your purpose.
-- [Rocketseat Video] (https://www.youtube.com/watch?v=pDbcC-xSat4) - (Portuguese) Introduced me React with Vite and other tools that i want to learn.
-- [CrossCromom - Anthony Garritano Video] (https://www.youtube.com/watch?v=i793Qm6kv3U) - (English) All about react rendering process.
-- [Fabio Vedovelli Video] (https://www.youtube.com/watch?v=agnAk8ay2gM) - (Portuguese) - Helped me with the basics concepts and inspired me to create this project.
+- [React Docs](https://pt-br.reactjs.org/docs/hello-world.html) - The best way to start learning Reactjs. Helped me to learn how react works and your purpose.
+- [Rocketseat Video](https://www.youtube.com/watch?v=pDbcC-xSat4) - (Portuguese) Introduced me React with Vite and other tools that i want to learn.
+- [CrossCromom - Anthony Garritano Video](https://www.youtube.com/watch?v=i793Qm6kv3U) - (English) All about react rendering process.
+- [Fabio Vedovelli Video](https://www.youtube.com/watch?v=agnAk8ay2gM) - (Portuguese) - Helped me with the basics concepts and inspired me to create this project.
 
 ## Author
 
