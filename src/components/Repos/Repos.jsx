@@ -53,7 +53,6 @@ function Repos(props){
 
     return (
         <main className="main main--dark">
-
             <section className="search-section">
 
                 <form className="form" action="#" onSubmit={onFormSubmitHandler}>
@@ -75,19 +74,13 @@ function Repos(props){
                 }
 
                 <ErrorMessage error={error} />
-
-                <LastSearch 
-                    data={lastUsernames} 
-                    onDelete={deleteLastSearch} 
-                    onInput={setInputSearchValue}
-                />
-
-                {/* {error?.status == 404 && 
-                    <p className="search-section__message">
-                        User not found. Search a valid username.
-                    </p>
-                } */}
             </section>
+
+            <LastSearch 
+                data={lastUsernames} 
+                onDelete={deleteLastSearch} 
+                onInput={setInputSearchValue}
+            />
 
             <ul className="repos-list">
                 {repositories?.length > 0 && repositories.map(repo => {

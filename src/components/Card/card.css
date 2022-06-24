@@ -106,9 +106,9 @@
     letter-spacing: 0.03em;
     font-size: var(--fs-xsm);
     font-weight: var(--fw-md-bold);
-
+  
     background: transparent;
-}
+  }
 .btn--primary{
     color: var(--clr-ntr-min);
     background-color: var(--clr-primary);

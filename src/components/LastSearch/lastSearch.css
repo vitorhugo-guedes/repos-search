@@ -1,21 +1,37 @@
 .user-list{
     list-style: none;
 
-    display: flex;
+    display: grid;
     gap: 10px;
-    flex-wrap: wrap;
-    flex-direction: row;
+    grid-template-columns: repeat(5, minmax(170px, 1fr));
+
+    max-inline-size: 70%;
 }
 
 .user-list__item{
+    align-self: center;
+    display: flex;
+    justify-content: space-between;
     background-color: var(--clr-primary-dark);
 }
 
 .btn--user, 
 .btn--close{
-    font-weight: var(--fw-regular);
     color: var(--clr-min);
+    font-weight: var(--fw-regular);
 }
+
+.btn--user{
+    text-align: start;
+    overflow: hidden;
+    width: 100%;
+}
+.btn--close{
+    display: grid;
+    place-items: center;
+    width: 20%;
+}
+
 .btn--user:hover, 
 .btn--close:hover{
     background-color: var(--clr-primary);
