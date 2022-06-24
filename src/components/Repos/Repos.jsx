@@ -13,6 +13,7 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage"
 import './repos.css'
 import { ImSearch } from "react-icons/im";
 import { AiOutlineEnter } from "react-icons/ai"
+import { useEffect } from "react";
 
 function Repos(props){
     const [username, setUsername] = useState('');
@@ -33,7 +34,11 @@ function Repos(props){
         setUrl(`https://api.github.com/users/${username}/repos`);
 
         setLastUsernames(prev => {
-            return [...prev, { 'id': createID(), 'username': username}]
+            if(username){
+                return [...prev, { 'id': createID(), 'username': username}]
+            }else{
+                return [...prev]
+            }
         });
     }
 
