@@ -1,4 +1,4 @@
-import Repos from './components/Repos'
+import Repos from './components/Repos/Repos'
 
 import './App.css'
 

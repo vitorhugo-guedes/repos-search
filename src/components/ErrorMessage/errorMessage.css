@@ -1,0 +1,4 @@
+.message-error{
+    font-size: var(--fs-md);
+    color: var(--clr-ntr-min);
+}

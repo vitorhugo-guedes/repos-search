@@ -1,11 +1,15 @@
+// Hooks and functions
 import { useState } from "react";
 import { useFetch } from "../../hooks/useFetch";
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 import createID from "../../modules/createID";
 
-import Card from "../Card";
-import LastSearch from "../LastSearch";
+// Components
+import Card from "../Card/Card";
+import LastSearch from "../LastSearch/LastSearch";
+import ErrorMessage from "../ErrorMessage/ErrorMessage"
 
+// Styles
 import './repos.css'
 import { ImSearch } from "react-icons/im";
 import { AiOutlineEnter } from "react-icons/ai"
@@ -15,26 +19,31 @@ function Repos(props){
     const [url, setUrl] = useState(null);
     const { data, error } = useFetch({ url });
     const [lastUsernames, setLastUsernames] = useLocalStorage('lastUsernames', [])
+    const repositories = data;
 
-    function handleSearchChange(ev){
+    function onChangeInputSearchHandler(ev){
         const value = ev.target.value
         const user = value.toLowerCase().trim()
         setUsername(user);
     }
     
-    function handleSubmit(ev){
+    function onFormSubmitHandler(ev){
         ev.preventDefault();
+        
         setUrl(`https://api.github.com/users/${username}/repos`);
-        setLastUsernames(prev => [...prev, { 'id': createID(), 'user': username}]);
+
+        setLastUsernames(prev => {
+            return [...prev, { 'id': createID(), 'username': username}]
+        });
     }
 
-    function deleteLastSearch(user){
-        let newUsernameList = lastUsernames.filter(item => item.id !== user.id)
+    function deleteLastSearch(ev, id){
+        let newUsernameList = lastUsernames.filter(item => item.id !== id)
         setLastUsernames([...newUsernameList])
     }
 
-    function setInputValue(data){
-        setUsername(data)
+    function setInputSearchValue(ev, value){
+        setUsername(value)
     }
 
     return (
@@ -42,42 +51,41 @@ function Repos(props){
 
             <section className="search-section">
 
-                <form className="form" action="#" onSubmit={handleSubmit}>
+                <form className="form" action="#" onSubmit={onFormSubmitHandler}>
                     <ImSearch className="input__search-icon" />
                     <input
                         type="search"
                         value={username}
-                        onChange={handleSearchChange}
+                        onChange={onChangeInputSearchHandler}
                         className="form__input form__input--dark"
                         placeholder="Search a github username"
                     />
                     <span className="input__underline"></span>
                 </form>
 
-                {!data?.length &&
+                {!repositories?.length &&
                     <p className="search-section__message">
                         Press enter <AiOutlineEnter className="message__icon" /> to search...
                     </p>
                 }
 
+                <ErrorMessage error={error} />
+
                 <LastSearch 
                     data={lastUsernames} 
                     onDelete={deleteLastSearch} 
-                    onInput={setInputValue}
+                    onInput={setInputSearchValue}
                 />
 
-                {error?.status == 404 && 
+                {/* {error?.status == 404 && 
                     <p className="search-section__message">
                         User not found. Search a valid username.
                     </p>
-                }
-            </section>
-
-            <section>
+                } */}
             </section>
 
             <ul className="repos-list">
-                {data?.length > 0 && data.map(repo => {
+                {repositories?.length > 0 && repositories.map(repo => {
                     return (
                         <li 
                             key={repo.id} 
