@@ -66,6 +66,8 @@ function Repos(props){
                         onChange={onChangeInputSearchHandler}
                         className="form__input form__input--dark"
                         placeholder="Search a github username"
+                        autoComplete="off"
+                        spellCheck="off"
                     />
                     <span className="input__underline"></span>
                 </form>
