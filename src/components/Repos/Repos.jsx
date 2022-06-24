@@ -34,10 +34,13 @@ function Repos(props){
         setUrl(`https://api.github.com/users/${username}/repos`);
 
         setLastUsernames(prev => {
-            if(username){
-                return [...prev, { 'id': createID(), 'username': username}]
+            if(username == '') return [...prev]
+
+            if(prev.length  > 0){
+                const checkedArray = prev.filter( user => user.username !== username)
+                return [...checkedArray, { 'id': createID(), 'username': username}]
             }else{
-                return [...prev]
+                return [...prev, { 'id': createID(), 'username': username}]
             }
         });
     }
