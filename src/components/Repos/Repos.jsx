@@ -7,7 +7,6 @@ import createID from "../../modules/createID";
 // Components
 import ReposList from "../ReposList/ReposList";
 import LastSearch from "../LastSearch/LastSearch";
-import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import Message from "../Message/Message";
 
 // Styles
