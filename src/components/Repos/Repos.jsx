@@ -24,34 +24,36 @@ function Repos(props){
 
     function onChangeInputSearchHandler(ev){
         const value = ev.target.value
-        const user = value.toLowerCase().trim()
-        setUsername(user);
+        setUsername(value);
     }
     
     function onFormSubmitHandler(ev){
         ev.preventDefault();
-        
-        setUrl(`https://api.github.com/users/${username}/repos`);
+
+        const formattedUsername = username.toLocaleLowerCase().trim();
+
+        setUrl(`https://api.github.com/users/${formattedUsername}/repos`);
 
         setLastUsernames(prev => {
             if(username == '') return [...prev]
 
             if(prev.length  > 0){
                 const checkedArray = prev.filter( user => user.username !== username)
-                return [...checkedArray, { 'id': createID(), 'username': username}]
+                return [...checkedArray, { 'id': createID(), 'username': formattedUsername}]
             }else{
-                return [...prev, { 'id': createID(), 'username': username}]
+                return [...prev, { 'id': createID(), 'username': formattedUsername}]
             }
         });
     }
 
     function deleteLastSearch(ev, id){
         let newUsernameList = lastUsernames.filter(item => item.id !== id)
-        setLastUsernames([...newUsernameList])
+        setLastUsernames([...newUsernameList]);
     }
 
     function setInputSearchValue(ev, value){
-        setUsername(value)
+        const user = value.toLowerCase().trim();
+        setUsername(user)
     }
 
     return (
@@ -67,7 +69,7 @@ function Repos(props){
                         className="form__input form__input--dark"
                         placeholder="Search a github username"
                         autoComplete="off"
-                        spellCheck="off"
+                        spellCheck="false"
                     />
                     <span className="input__underline"></span>
                 </form>
