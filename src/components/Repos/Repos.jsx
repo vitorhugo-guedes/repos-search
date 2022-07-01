@@ -5,7 +5,7 @@ import { useLocalStorage } from '../../hooks/useLocalStorage'
 import createID from "../../modules/createID";
 
 // Components
-import Card from "../Card/Card";
+import ReposList from "../ReposList/ReposList";
 import LastSearch from "../LastSearch/LastSearch";
 import ErrorMessage from "../ErrorMessage/ErrorMessage"
 
@@ -13,7 +13,6 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage"
 import './repos.css'
 import { ImSearch } from "react-icons/im";
 import { AiOutlineEnter } from "react-icons/ai"
-import { useEffect } from "react";
 
 function Repos(props){
     const [username, setUsername] = useState('');
@@ -89,18 +88,7 @@ function Repos(props){
                 onInput={setInputSearchValue}
             />
 
-            <ul className="repos-list">
-                {repositories?.length > 0 && repositories.map(repo => {
-                    return (
-                        <li 
-                            key={repo.id} 
-                            className="repos-list__item"
-                        >
-                            <Card  repo={repo} />
-                        </li>
-                    )
-                })}
-            </ul>
+            <ReposList repos={data} />
 
         </main>
     )
