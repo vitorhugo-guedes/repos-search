@@ -1,25 +1,24 @@
 // Hooks and functions
 import { useState } from "react";
 import { useFetch } from "../../hooks/useFetch";
-import { useLocalStorage } from '../../hooks/useLocalStorage'
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 import createID from "../../modules/createID";
 
 // Components
 import ReposList from "../ReposList/ReposList";
 import LastSearch from "../LastSearch/LastSearch";
-import ErrorMessage from "../ErrorMessage/ErrorMessage"
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import Message from "../Message/Message";
 
 // Styles
 import './repos.css'
 import { ImSearch } from "react-icons/im";
-import { AiOutlineEnter } from "react-icons/ai"
 
 function Repos(props){
     const [username, setUsername] = useState('');
     const [url, setUrl] = useState(null);
     const { data, error } = useFetch({ url });
     const [lastUsernames, setLastUsernames] = useLocalStorage('lastUsernames', [])
-    const repositories = data;
 
     function onChangeInputSearchHandler(ev){
         const value = ev.target.value
@@ -73,13 +72,7 @@ function Repos(props){
                     <span className="input__underline"></span>
                 </form>
 
-                {!repositories?.length &&
-                    <p className="search-section__message">
-                        Press enter <AiOutlineEnter className="message__icon" /> to search...
-                    </p>
-                }
-
-                <ErrorMessage error={error} />
+                <Message messageData={{error}} />
             </section>
 
             <LastSearch 

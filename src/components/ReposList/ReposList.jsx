@@ -8,7 +8,9 @@ function ReposList(props){
 
     return (
         <ul className="repos-list">
-                {repositories?.length > 0 && repositories.map(repo => {
+                {repositories?.length > 0 
+                && 
+                repositories.map(repo => {
                     return (
                         <li 
                             key={repo.id} 

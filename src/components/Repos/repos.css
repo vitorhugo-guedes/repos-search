@@ -64,9 +64,4 @@
     color: var(--clr-primary-light);
 }
 
-.message__icon{
-    padding: 0px 2px 4px 0px;
-    background-color: var(--clr-ntr-md);
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, 
-                rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-}
+

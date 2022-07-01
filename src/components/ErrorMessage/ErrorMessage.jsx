@@ -3,7 +3,7 @@ import './errorMessage.css'
 function ErrorMessage(props){
     const error = props.error;
 
-    function errorNotFound(err){
+    function errorNotFound(){
         return (
             <p className='message-error'>
                 User not found, search a valid username.
